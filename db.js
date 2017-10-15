@@ -1,4 +1,4 @@
-mongoose.connect('mongodb://mongodb/pedidos');
+mongoose.connect('mongodb://mongodb:mongodb@mongodb/pedidos');
 
 var pedidoSchema = new mongoose.Schema(
   {
