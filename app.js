@@ -53,6 +53,21 @@ app.post('/pedidos', (req, res) => {
   })
 });
 
+app.delete('/pedidos/:id', (req, res) => {
+  var idPedido = req.params.id,
+  db.collection('Pedidos', {}, function(err, pedidos) {
+      pedidos.remove({_id: ObjectID(idPedido)}, function(err, result) {
+          if (err) {
+              console.log(err);
+          }
+          console.log(result);
+          res.json({message:'ok'});
+          res.end();
+
+      });
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
