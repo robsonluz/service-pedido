@@ -35,6 +35,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+/* GET all pedidos. */
+app.get('/pedidos', function (req, res, next) {
+
+  db.collection('Pedidos').find().toArray(function(err, results) {
+    res.json(results);
+    res.end();
+  })
+
+});
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
