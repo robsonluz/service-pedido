@@ -45,6 +45,14 @@ app.get('/pedidos', function (req, res, next) {
 
 });
 
+app.post('/pedidos', (req, res) => {
+  db.collection('Pedidos').save(req.body, (err, result) => {
+    console.log('saved to database')
+    res.json(result);
+    res.end();
+  })
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
