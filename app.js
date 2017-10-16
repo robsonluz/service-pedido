@@ -8,7 +8,7 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://mongod:mongod@mongodb/pedidos', (err, database) => {
+MongoClient.connect('mongodb://mongodb:mongodb@mongodb/pedidos', (err, database) => {
   if (err) return console.log(err)
   db = database
 })
