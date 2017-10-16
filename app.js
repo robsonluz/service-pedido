@@ -61,7 +61,7 @@ app.delete('/pedidos/:id', (req, res) => {
   var pedidos = db.collection('Pedidos');
 
   pedidos.deleteOne({
-    {"_id": ObjectID(idPedido)}
+    "_id": ObjectID(idPedido)
   }, function(err, results) {
       //console.log(results.result);
   });
