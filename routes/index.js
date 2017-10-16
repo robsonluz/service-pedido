@@ -9,12 +9,19 @@ router.get('/', function(req, res, next) {
 
 /* GET all pedidos. */
 router.get('/pedidos', function (req, res, next) {
-    var db = require('../db');
+
+  db.collection('Pedidos').find().toArray(function(err, results) {
+    res.json(results);
+    res.end();
+  })
+
+/*    var db = require('../db');
     var Pedido = db.Mongoose.model('pedidos', db.PedidoSchema, 'pedidos');
     Pedido.find({}).lean().exec(function(e, docs){
        res.json(docs);
        res.end();
     });
+*/
 });
 
 module.exports = router;

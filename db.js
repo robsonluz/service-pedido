@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://mongodb:mongodb@mongodb/pedidos');
 
 var pedidoSchema = new mongoose.Schema(

@@ -4,9 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient
+
+var db
+
+MongoClient.connect('mongodb://mongod:mongod@mongodb/pedidos', (err, database) => {
+  if (err) return console.log(err)
+  db = database
+})
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+
 
 var app = express();
 
