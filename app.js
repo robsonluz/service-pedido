@@ -4,11 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient
 
 var db
 
 MongoClient.connect('mongodb://mongodb:mongodb@mongodb/pedidos', (err, database) => {
+//MongoClient.connect('mongodb://localhost/pedidos', (err, database) => {
   if (err) return console.log(err)
   db = database
 })
@@ -61,7 +63,7 @@ app.delete('/pedidos/:id', (req, res) => {
   var pedidos = db.collection('Pedidos');
 
   pedidos.deleteOne({
-    "_id": ObjectID(idPedido)
+    "_id": ObjectId(idPedido)
   }, function(err, results) {
       //console.log(results.result);
   });
