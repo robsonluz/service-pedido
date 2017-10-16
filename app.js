@@ -55,6 +55,14 @@ app.post('/pedidos', (req, res) => {
 
 app.delete('/pedidos/:id', (req, res) => {
   var idPedido = req.params.id;
+  console.log('idPedido');
+  console.log(idPedido);
+
+  db.collection('Pedidos').deleteOne({_id: ObjectID(idPedido)});
+  res.json({message:'ok'});
+  res.end();
+/*
+  db.inventory.deleteOne( { status: "D" } )
   db.collection('Pedidos', {}, function(err, pedidos) {
       pedidos.remove({_id: ObjectID(idPedido)}, function(err, result) {
           if (err) {
@@ -66,6 +74,7 @@ app.delete('/pedidos/:id', (req, res) => {
 
       });
   });
+  */
 });
 
 
