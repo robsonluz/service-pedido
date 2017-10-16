@@ -54,7 +54,7 @@ app.post('/pedidos', (req, res) => {
 });
 
 app.delete('/pedidos/:id', (req, res) => {
-  var idPedido = req.params.id,
+  var idPedido = req.params.id;
   db.collection('Pedidos', {}, function(err, pedidos) {
       pedidos.remove({_id: ObjectID(idPedido)}, function(err, result) {
           if (err) {
